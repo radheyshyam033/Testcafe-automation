@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "testDemo": "testcafe chrome AutomationGLCyberSecurityCourse/*.js"
+  },
+
+  "dependencies": {
+    "testcafe": "^1.18.6"
+  }
+}
