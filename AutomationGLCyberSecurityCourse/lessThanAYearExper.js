@@ -12,31 +12,34 @@ const city=Selector('#myCity')
 test('Cyber Security Course for Less than 1 Year ', async t =>{
     await t
     .click('#top-banner-button-section > div.application-btn-section > a')
+    // .click('a.btn yellow-transparent-button btn-style fixed-size-btn track-click-mp')
     .typeText(name,'Radhey Shyam')
+    // .expect(name.value).notOk("Name field assertion will fail")
     .typeText(phone,'8237492839')
-    .typeText(email,'radhey@gmail.com')
+    .typeText(email,'radheyshyam@gmail.com')
     .typeText(city,'Jhansi')
     
     //Click to next button
-    .click('[href="#step_1"]')
+    .click('#app_step_1')
 
     const experienceSelect=Selector('#experience')
     const experienceOption=experienceSelect.find('option')
     await t
     .click(experienceSelect)
-    .click(experienceOption.withText('1-2 Years'))
-    .expect(experienceSelect.value).eql('1-2 Years')
+    .click(experienceOption.withText('Less than 1 Year'))
+    // .expect(experienceSelect.value).eql('<1 Year')
+    // .expect(experienceSelect.value).notOk('Experiance asserion will fail')
 
     .typeText('#curr_org','Great Learning')
     .click('#organisation_details .check-icon')
 
-    const currMonthSelect=Selector('#curr_org_from_date > div:nth-of-type(1) .form-control')
+    const currMonthSelect=Selector('#from_month1')
     const currMonthOption=currMonthSelect.find('option')
     await t
     .click(currMonthSelect)
     .click(currMonthOption.withText('February'))
 
-    const currYearSelect=Selector('#curr_org_from_date > div:nth-of-type(2) .form-control')
+    const currYearSelect=Selector('#from_year1')
     const currYearOption=currYearSelect.find('option')
     await t
     .click(currYearSelect)
@@ -82,11 +85,10 @@ test('Cyber Security Course for Less than 1 Year ', async t =>{
     .click(gredYearOption.withText('2021'))
     .expect(gredYearSelect.value).eql('2021')
 
-
     .typeText('#grad_specialization','Computer Science')
     .typeText('#grad_college','Bundelkhand University, Jhansi')
 
-    .typeText('#grad_cgpa','7.3')
+    .typeText('#grad_cgpa','-7.3')
 
     // click on next button
     .click('#prof_details_end')
@@ -94,26 +96,22 @@ test('Cyber Security Course for Less than 1 Year ', async t =>{
     .typeText('#linkedinurl','https://www.linkedin.com/in/profile/')
 
     
-    .setFilesToUpload('#resume','//Files/resume.pdf')
-    .click('#resume')
+    .setFilesToUpload('#resume','resume.pdf')
 
     .click('#upload_next')
 
     .typeText('#new_question1','This is great opportunity for me to  start career in cybersecurity')
 
     .click('#step_4 > div:nth-child(6) > div > div > label > span')
+    // .click('.check-icon')
 
     // click on submit Application button
     .click('#submit_app')
-
+    
     // enter password
     .typeText('#password','password@123')
 
     // Enter to login button
+    // .click('#user-signup-btn')
     // .click('#recaptcha_app_log_in_button')
-
-    
-
-
-
 })
